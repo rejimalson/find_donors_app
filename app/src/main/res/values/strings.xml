@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Find Donors</string>
+    <string name="splash_screen_img_desc">Splash Screen Image</string>
 </resources>

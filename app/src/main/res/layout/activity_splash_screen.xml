@@ -8,10 +8,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.rejimalson.finddonors.SplashScreenActivity">
+    android:background="@color/splashScreenBgColor"
+    tools:context="com.rejimalson.finddonors.activity.SplashScreenActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:contentDescription="@string/splash_screen_img_desc"
+        android:src="@mipmap/fd_splash_screen_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"/>
+
 </RelativeLayout>
