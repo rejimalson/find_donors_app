@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "865709318120",
+    "firebase_url": "https://find-donors-app-f9e44.firebaseio.com",
+    "project_id": "find-donors-app-f9e44",
+    "storage_bucket": "find-donors-app-f9e44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865709318120:android:06a64e1d19e90988",
+        "android_client_info": {
+          "package_name": "com.rejimalson.finddonors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865709318120-h4a4ved4btgoqba9v2pannl6bnh9u7me.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rejimalson.finddonors",
+            "certificate_hash": "5649EFC6FA9073774581F8FC697E5497BE8B8D72"
+          }
+        },
+        {
+          "client_id": "865709318120-pfci3og5neevoj2pt8qbr102jmtg61gq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Rogi8eFKQXWX9g5xGr9RV9ZlDtA6wts"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865709318120-pfci3og5neevoj2pt8qbr102jmtg61gq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

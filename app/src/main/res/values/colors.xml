@@ -4,4 +4,7 @@
     <color name="statusBarColor">#ce1921</color>
     <color name="colorAccent">#009688</color>
     <color name="splashScreenBgColor">#c90303</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="terms_color">#BDBDBD</color>
 </resources>
