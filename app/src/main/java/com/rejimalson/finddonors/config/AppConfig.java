@@ -16,6 +16,6 @@ public class AppConfig {
     }
     //Password validation function
     public static boolean validatePassword(String pd) {
-        return pd.length() >= 5;
+        return pd.length() >= 6;
     }
 }

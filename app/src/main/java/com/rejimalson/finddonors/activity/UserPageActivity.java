@@ -27,7 +27,7 @@ public class UserPageActivity extends AppCompatActivity {
 
         //Initialize Firbase Instance
         mAuth = FirebaseAuth.getInstance();
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        mUser = mAuth.getCurrentUser();
 
         mLogout = (Button)findViewById(R.id.logoutBtn);
         mLogout.setOnClickListener(new View.OnClickListener() {
@@ -39,15 +39,9 @@ public class UserPageActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        mAuth.signOut();
         Intent intent = new Intent(UserPageActivity.this,SignInActivity.class);
         startActivity(intent);
-        finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+        mAuth.signOut();
         finish();
     }
 }

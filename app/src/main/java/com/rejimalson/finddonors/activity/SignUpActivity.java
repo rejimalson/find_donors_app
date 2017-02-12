@@ -4,28 +4,26 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.config.AppConfig;
 import com.rejimalson.finddonors.helper.EditextErrorIcon;
@@ -109,7 +107,7 @@ public class SignUpActivity extends AppCompatActivity {
                     mPasswordLayout.setErrorEnabled(false);
                     mPassword.setError(null,successIcon);
                 }else {
-                    mPasswordLayout.setError("Password must be at least 5 characters");
+                    mPasswordLayout.setError("Password must be at least 6 characters");
                     mPassword.setError(null,errorIcon);
                 }
             }
@@ -127,7 +125,7 @@ public class SignUpActivity extends AppCompatActivity {
                     mCPasswordLayout.setErrorEnabled(false);
                     mCPassword.setError(null,successIcon);
                 }else {
-                    mCPasswordLayout.setError("Password must be at least 5 characters");
+                    mCPasswordLayout.setError("Password must be at least 6 characters");
                     mCPassword.setError(null,errorIcon);
                 }
             }
@@ -175,10 +173,25 @@ public class SignUpActivity extends AppCompatActivity {
                     try {
                         throw task.getException();
                     } catch (FirebaseAuthUserCollisionException e) {
-                        //TODO: Write logic for user collision exception
+                        mRelativeLayout.setVisibility(View.VISIBLE);
+                        Snackbar.make
+                                (mRelativeLayout,"User already exists",Snackbar.LENGTH_INDEFINITE).
+                                setAction("OKAY", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                            }
+                        }).show();
+                    } catch (FirebaseNetworkException e) {
+                        mRelativeLayout.setVisibility(View.VISIBLE);
+                        Snackbar.make
+                                (mRelativeLayout,"Check your internet connection !!!",Snackbar.LENGTH_INDEFINITE).
+                                setAction("OKAY", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                    }
+                                }).show();
                     } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(SignUpActivity.this, ""+e, Toast.LENGTH_SHORT).show();
+                        Snackbar.make(mRelativeLayout,""+e,Snackbar.LENGTH_INDEFINITE).show();
                     }
                 }
             }
@@ -203,7 +216,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return false;
                 }
             }else {
-                mPasswordLayout.setError("Password must be at least 5 characters");
+                mPasswordLayout.setError("Password must be at least 6 characters");
                 mPassword.setError(null,errorIcon);
                 mPassword.requestFocus();
                 return false;
