@@ -18,4 +18,11 @@
     <string name="sign_up_terms"><![CDATA[By clicking sign up, you are agree to our terms and conditions]]></string>
     <string name="menu_signup_terms">T&amp;C</string>
     <string name="emailValidationError">Enter valid email address</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragment
+    Hello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragment
+    Hello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragmentHello blank fragment</string>
+    <string name="notifications_icon_title">Notifications</string>
+
 </resources>

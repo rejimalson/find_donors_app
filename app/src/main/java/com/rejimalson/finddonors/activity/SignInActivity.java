@@ -41,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
     private Button mSignIn;
     private RelativeLayout mRelativeLayout;
 
-    private Drawable successIcon, errorIcon;
+    private Drawable errorIcon;
     private ProgressDialog signInProgress;
 
     //Firebase Instance
@@ -72,7 +72,6 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         //Get the error and success icons
         getValidationErrorIcon();
-        getValidationSuccessIcon();
 
         //Initialize the Progress Dialog
         signInProgress = new ProgressDialog(this);
@@ -131,6 +130,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO: Write code for Forgot Password process on Forgot Password TextView click
+                Toast.makeText(SignInActivity.this, "Forgot Password", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -187,14 +187,6 @@ public class SignInActivity extends AppCompatActivity {
             mEmail.setError(null,errorIcon);
             mEmail.requestFocus();
             return true;
-        }
-    }
-
-    private void getValidationSuccessIcon() {
-        successIcon = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_succcess);
-        if (successIcon != null) {
-            successIcon.setBounds(new
-                    Rect(0, 0, successIcon.getIntrinsicWidth(), successIcon.getIntrinsicHeight()));
         }
     }
 

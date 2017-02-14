@@ -7,4 +7,6 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="terms_color">#BDBDBD</color>
+    <color name="inActiveTabTextColor">#d2d2d2</color>
+    <color name="appBarColor">#e6e6e6</color>
 </resources>
