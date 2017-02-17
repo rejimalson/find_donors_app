@@ -3,6 +3,9 @@ package com.rejimalson.finddonors.config;
 public class AppConfig {
     //Splash Screen wait time in milli seconds
     public static final int SPLASH_SCREEN_WAIT_TIME = 3000;
+    //Gender List
+    public static final String GENDER_LIST[] = {"Select gender", "Male", "Female", "Transgender"};
+
     //Email id validation function
     public static boolean validateEmail(String mail) {
         String emailPattern = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +

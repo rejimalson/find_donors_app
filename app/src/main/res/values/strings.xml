@@ -27,4 +27,7 @@
     <string name="followers_count">50</string>
     <string name="edit_profile_icon_title">Edit Profile</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

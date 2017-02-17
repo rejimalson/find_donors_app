@@ -166,7 +166,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 signUpProgress.dismiss();
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(SignUpActivity.this,UserPageActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this,OnBoardActivity.class);
                     startActivity(intent);
                     finish();
                 }else {
