@@ -9,118 +9,129 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/actionBarColor">
-
-        <RelativeLayout
+        
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/white"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:elevation="12dp">
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="50dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/followersCount"
-                    android:text="50"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_centerHorizontal="true"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/followersLabel"
-                    android:text="Followers"
-                    android:layout_below="@+id/followersCount"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="50dp"
-                android:layout_alignParentRight="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/followingsCount"
-                    android:text="50"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:layout_centerHorizontal="true"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/followingsLabel"
-                    android:text="Followings"
-                    android:layout_below="@+id/followingsCount"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/userImgFrameLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:paddingTop="12dp">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@mipmap/rejimal" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/userImgFrameLayout"
-                android:text="Antony Rejimal"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/userPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/userName"
-                android:text="+91 - 9940307983"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
-
-            <RelativeLayout
+                android:id="@+id/userDetailsLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/userPhone"
-                android:layout_alignParentBottom="true">
+                android:layout_height="200dp"
+                android:background="@color/white"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="18dp"
+                android:elevation="12dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/followersCount"
+                        android:text="@string/followers_count"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/followersLabel"
+                        android:text="@string/followers_label"
+                        android:layout_below="@+id/followersCount"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/followingsCount"
+                        android:text="@string/followings_count"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/followingsLabel"
+                        android:text="@string/followings_label"
+                        android:layout_below="@+id/followingsCount"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/userImgFrameLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="12dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/rejimal" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/userImgFrameLayout"
+                    android:text="@string/userName"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/userPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/userName"
+                    android:text="@string/userPhone"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
 
             </RelativeLayout>
 
-        </RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarProfile"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:layout_gravity="bottom">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/profileTabLayout"
@@ -128,7 +139,7 @@
                 android:layout_height="wrap_content"
                 app:tabTextColor="@color/inActiveTabTextColor"
                 app:tabIndicatorColor="@color/actionBarColor"
-                app:tabSelectedTextColor="@color/actionBarColor" />
+                app:tabSelectedTextColor="@color/actionBarColor"/>
 
         </RelativeLayout>
 

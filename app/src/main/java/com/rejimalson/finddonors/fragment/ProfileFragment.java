@@ -31,8 +31,8 @@ public class ProfileFragment extends Fragment {
         profileView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         mTablayout = (TabLayout)profileView.findViewById(R.id.profileTabLayout);
-        mTablayout.addTab(mTablayout.newTab().setText("About"));
-        mTablayout.addTab(mTablayout.newTab().setText("Blood Requests"));
+        mTablayout.addTab(mTablayout.newTab().setText("About Me"));
+        mTablayout.addTab(mTablayout.newTab().setText("My Activities"));
         mTablayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         mViewPager = (ViewPager)profileView.findViewById(R.id.profileTabPageContainer);

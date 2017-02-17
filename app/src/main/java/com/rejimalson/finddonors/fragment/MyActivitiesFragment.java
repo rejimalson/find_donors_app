@@ -11,10 +11,10 @@ import com.rejimalson.finddonors.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BloodRequestFragment extends Fragment {
+public class MyActivitiesFragment extends Fragment {
 
     View bloodRequestView;
-    public BloodRequestFragment() {
+    public MyActivitiesFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class BloodRequestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        bloodRequestView = inflater.inflate(R.layout.fragment_blood_request, container, false);
+        bloodRequestView = inflater.inflate(R.layout.fragment_my_activities, container, false);
 
         return bloodRequestView;
     }

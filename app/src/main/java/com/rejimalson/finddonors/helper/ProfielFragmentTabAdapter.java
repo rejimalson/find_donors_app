@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.rejimalson.finddonors.fragment.AboutUserFragment;
-import com.rejimalson.finddonors.fragment.BloodRequestFragment;
+import com.rejimalson.finddonors.fragment.MyActivitiesFragment;
 
 public class ProfielFragmentTabAdapter extends FragmentStatePagerAdapter {
     //Declare Instance
@@ -22,7 +22,7 @@ public class ProfielFragmentTabAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new AboutUserFragment();
             case 1:
-                return new BloodRequestFragment();
+                return new MyActivitiesFragment();
             default:
                 return null;
         }

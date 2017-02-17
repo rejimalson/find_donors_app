@@ -2,18 +2,12 @@ package com.rejimalson.finddonors.activity;
 
 import android.content.Intent;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rejimalson.finddonors.R;
@@ -104,14 +98,17 @@ public class UserPageActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_notification_icon,menu);
+        getMenuInflater().inflate(R.menu.menu_user_page,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.menu_notification:
+            case R.id.profile_menu_edit:
+                // TODO: Write code for Edit Profile Menu
+                break;
+            case R.id.profile_menu_notification:
                 // TODO: Write code for Notifications Menu
                 break;
         }
