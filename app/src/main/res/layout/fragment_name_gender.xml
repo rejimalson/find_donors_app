@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="10dp"
     tools:context="com.rejimalson.finddonors.fragment.NameGenderFragment">
 
     <android.support.v4.widget.NestedScrollView
@@ -12,18 +11,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/name_hint_label"
                 android:text="What is your name?"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"/>
 
             <EditText
@@ -31,8 +31,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/name"
                 android:layout_below="@+id/name_hint_label"
-                android:hint="Enter your full name"
-                android:layout_marginTop="15dp"
+                android:hint="Enter Your Full Name"
+                android:layout_marginTop="10dp"
                 android:inputType="textPersonName|textCapWords"/>
 
             <TextView
@@ -40,10 +40,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/gender_hint_label"
                 android:text="You are?"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/name"/>
 
@@ -52,7 +52,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/gender"
                 android:layout_below="@+id/gender_hint_label"
-                android:layout_marginTop="5dp"
                 android:spinnerMode="dialog"/>
 
             <View
@@ -69,10 +68,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/bday_hint_label"
                 android:text="What is Your Birthday?"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/divider"/>
 
@@ -81,13 +80,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/bday_layout"
                 android:layout_below="@+id/bday_hint_label"
-                android:layout_marginTop="25dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/bday_hint"
-                    android:text="Select birthday"
+                    android:text="Select Birthday"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="normal"
                     android:textColorHint="@color/hintColor"
@@ -104,6 +103,34 @@
                     android:layout_marginTop="15dp"/>
 
             </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/blood_grp_hint_label"
+                android:text="What is Your Blood Group?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/bday_layout"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/blood_grp"
+                android:layout_below="@+id/blood_grp_hint_label"
+                android:spinnerMode="dialog"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:id="@+id/blood_grp_divider"
+                android:background="@color/colorAccent"
+                android:layout_below="@id/blood_grp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"/>
 
         </RelativeLayout>
 

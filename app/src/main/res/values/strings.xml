@@ -1,33 +1,33 @@
 <resources>
-    <string name="app_name">Find Donors</string>
-    <string name="splash_screen_img_desc">Splash Screen Image</string>
-    <string name="sign_in_frgt_pwd">Forgot Password?</string>
-    <string name="sign_in_btn">SIGN IN</string>
-    <string name="sign_up_hint_ques">New User?</string>
-    <string name="sign_up_txt">Sign Up Here</string>
-    <string name="or">OR</string>
-    <string name="sign_in_email_hint">Email Address</string>
-    <string name="sign_in_pwd_hint">Password</string>
-    <string name="sign_in_with_google">Sign In with Google</string>
-    <string name="signUpActivityTitle">Sign Up</string>
-    <string name="signup_hint_fn">Full Name</string>
-    <string name="sign_up_email_hint">Email Address</string>
-    <string name="sign_up_pwd_hint">Password</string>
-    <string name="sign_up_cpwd_hint">Confirm Password</string>
-    <string name="sign_up_btn">SIGN UP</string>
-    <string name="sign_up_terms"><![CDATA[By clicking sign up, you are agree to our terms and conditions]]></string>
-    <string name="menu_signup_terms">T&amp;C</string>
-    <string name="emailValidationError">Enter valid email address</string>
-    <string name="notifications_icon_title">Notifications</string>
-    <string name="userName">Antony Rejimal</string>
-    <string name="userPhone">+91 – 9940307983</string>
-    <string name="followings_label">Followings</string>
-    <string name="followers_label">Followers</string>
-    <string name="followings_count">50</string>
-    <string name="followers_count">50</string>
-    <string name="edit_profile_icon_title">Edit Profile</string>
+		<string name="app_name">Find Donors</string>
+		<string name="splash_screen_img_desc">Splash Screen Image</string>
+		<string name="sign_in_frgt_pwd">Forgot Password?</string>
+		<string name="sign_in_btn">SIGN IN</string>
+		<string name="sign_up_hint_ques">New User?</string>
+		<string name="sign_up_txt">Sign Up Here</string>
+		<string name="or">OR</string>
+		<string name="sign_in_email_hint">Email Address</string>
+		<string name="sign_in_pwd_hint">Password</string>
+		<string name="sign_in_with_google">Sign In with Google</string>
+		<string name="signUpActivityTitle">Sign Up</string>
+		<string name="signup_hint_fn">Full Name</string>
+		<string name="sign_up_email_hint">Email Address</string>
+		<string name="sign_up_pwd_hint">Password</string>
+		<string name="sign_up_cpwd_hint">Confirm Password</string>
+		<string name="sign_up_btn">SIGN UP</string>
+		<string name="sign_up_terms"><![CDATA[By clicking sign up, you are agree to our terms and conditions]]></string>
+		<string name="menu_signup_terms">T&amp;C</string>
+		<string name="emailValidationError">Enter valid email address</string>
+		<string name="notifications_icon_title">Notifications</string>
+		<string name="userName">Antony Rejimal</string>
+		<string name="userPhone">+91 – 9940307983</string>
+		<string name="followings_label">Followings</string>
+		<string name="followers_label">Followers</string>
+		<string name="followings_count">50</string>
+		<string name="followers_count">50</string>
+		<string name="edit_profile_icon_title">Edit Profile</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+		<!-- TODO: Remove or change this placeholder text -->
+		<string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

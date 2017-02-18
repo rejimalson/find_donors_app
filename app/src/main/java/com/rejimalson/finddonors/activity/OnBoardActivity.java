@@ -1,6 +1,5 @@
 package com.rejimalson.finddonors.activity;
 
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +8,7 @@ import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.fragment.NameGenderFragment;
 
 public class OnBoardActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,4 +23,6 @@ public class OnBoardActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.on_board_pages_container,nameGenderFragment);
         fragmentTransaction.commit();
     }
+
+
 }

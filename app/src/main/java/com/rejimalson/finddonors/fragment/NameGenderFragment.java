@@ -3,7 +3,6 @@ package com.rejimalson.finddonors.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import static com.rejimalson.finddonors.R.id.gender;
 public class NameGenderFragment extends Fragment {
 
     View nameGenderView;
-    Spinner genderSpinner;
+    Spinner genderSpinner,bloodGroupSpinner;
     public NameGenderFragment() {
         // Required empty public constructor
     }
@@ -33,6 +32,8 @@ public class NameGenderFragment extends Fragment {
         nameGenderView = inflater.inflate(R.layout.fragment_name_gender, container, false);
 
         genderSpinner = (Spinner)nameGenderView.findViewById(gender);
+        bloodGroupSpinner = (Spinner)nameGenderView.findViewById(R.id.blood_grp);
+
         ArrayAdapter gender_Adapter = new ArrayAdapter<>
                 (getActivity(), android.R.layout.simple_dropdown_item_1line, AppConfig.GENDER_LIST);
         gender_Adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -43,12 +44,24 @@ public class NameGenderFragment extends Fragment {
                 String gender = AppConfig.GENDER_LIST[position];
                 Toast.makeText(getActivity(), ""+gender, Toast.LENGTH_SHORT).show();
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
+
+        ArrayAdapter blood_group_adapter = new ArrayAdapter<>
+                (getActivity(),android.R.layout.simple_dropdown_item_1line,AppConfig.BLOOD_GROUP_LIST);
+        blood_group_adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        bloodGroupSpinner.setAdapter(blood_group_adapter);
+        bloodGroupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String blood_group = AppConfig.BLOOD_GROUP_LIST[position];
+                Toast.makeText(getActivity(), ""+blood_group, Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) { }
+        });
+
 
         return nameGenderView;
     }
