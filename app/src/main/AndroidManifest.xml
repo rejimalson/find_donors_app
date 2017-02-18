@@ -13,16 +13,16 @@
         <activity
             android:name=".activity.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
-        </activity>
-        <activity android:name=".activity.SignInActivity" />
-        <activity android:name=".activity.SignUpActivity" />
-        <activity android:name=".activity.UserPageActivity"></activity>
-        <activity android:name=".activity.OnBoardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.SignInActivity" />
+        <activity android:name=".activity.SignUpActivity" />
+        <activity android:name=".activity.UserPageActivity"></activity>
+        <activity android:name=".activity.OnBoardActivity"></activity>
     </application>
 
 </manifest>
