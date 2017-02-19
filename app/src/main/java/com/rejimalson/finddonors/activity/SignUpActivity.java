@@ -24,23 +24,31 @@ import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.config.AppConfig;
 import com.rejimalson.finddonors.helper.EditextErrorIcon;
+import com.rejimalson.finddonors.helper.UserDetails;
 
 public class SignUpActivity extends AppCompatActivity {
 
     //Declare instance here
-    private TextInputLayout mEmailLayout,mPasswordLayout,mCPasswordLayout;
-    private EditextErrorIcon mEmail, mPassword, mCPassword;
+    private TextInputLayout mNameLayout, mPhoneLayout, mEmailLayout,mPasswordLayout,mCPasswordLayout;
+    private EditextErrorIcon mName, mPhone, mEmail, mPassword, mCPassword;
     private Button mSignUp;
     private RelativeLayout mRelativeLayout;
 
     private Drawable successIcon, errorIcon;
     private ProgressDialog signUpProgress;
+    private String mUserId;
 
     //Declare Firebase Instance here
     private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mDatabaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,18 +74,62 @@ public class SignUpActivity extends AppCompatActivity {
 
         //Initialize Firebase Instance
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
 
         // Find View Id here
+        mNameLayout = (TextInputLayout)findViewById(R.id.su_name_input_layout);
+        mPhoneLayout = (TextInputLayout)findViewById(R.id.su_phone_input_layout);
         mEmailLayout = (TextInputLayout)findViewById(R.id.su_email_input_layout);
         mPasswordLayout = (TextInputLayout)findViewById(R.id.su_pwd_input_layout);
         mCPasswordLayout = (TextInputLayout)findViewById(R.id.su_cpwd_input_layout);
+
+        mName = (EditextErrorIcon)findViewById(R.id.su_input_name);
+        mPhone = (EditextErrorIcon)findViewById(R.id.su_input_phone);
         mEmail = (EditextErrorIcon) findViewById(R.id.su_input_email);
         mPassword = (EditextErrorIcon) findViewById(R.id.su_input_pwd);
         mCPassword = (EditextErrorIcon) findViewById(R.id.su_input_cpwd);
+
         mSignUp = (Button)findViewById(R.id.sign_up_btn_id);
+
         mRelativeLayout = (RelativeLayout)findViewById(R.id.mainRelativeLayout);
 
         //Set Text watcher here
+        mName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(AppConfig.validateName(mName.getText().toString().trim())){
+                    mNameLayout.setErrorEnabled(false);
+                    mName.setError(null,successIcon);
+                }else {
+                    mNameLayout.setError("Enter valid name");
+                    mName.setError(null,errorIcon);
+                }
+            }
+        });
+        mPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(AppConfig.validatePhone(mPhone.getText().toString().trim())){
+                    mPhoneLayout.setErrorEnabled(false);
+                    mPhone.setError(null,successIcon);
+                }else {
+                    mPhoneLayout.setError("Enter valid phone number");
+                    mPhone.setError(null,errorIcon);
+                }
+            }
+        });
         mEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -140,7 +192,10 @@ public class SignUpActivity extends AppCompatActivity {
                 if(validateSignUpDetails()){
                     mRelativeLayout.setVisibility(View.INVISIBLE);
                     signUpProgress.show();
-                    signUpUser(mEmail.getText().toString().trim(),mPassword.getText().toString().trim());
+                    signUpUser(mName.getText().toString().trim(),
+                            mPhone.getText().toString().trim(),
+                            mEmail.getText().toString().trim(),
+                            mPassword.getText().toString().trim());
                 }
             }
         });
@@ -162,15 +217,29 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    private void signUpUser(String email, String password) {
+    private void signUpUser(final String name, final String phone, final String email, final String password) {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 signUpProgress.dismiss();
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(SignUpActivity.this,UserPageActivity.class);
-                    startActivity(intent);
-                    finish();
+                    //TODO: Write code to store user details to firebase realtime database
+                    mUser = mAuth.getCurrentUser();
+                    if (mUser != null) {
+                        mUserId = mUser.getUid();
+                        mDatabaseRef = mDatabase.getReference();
+                        UserDetails personalDetails = new UserDetails(name,null,null,null);
+                        UserDetails contactDetails = new UserDetails(phone,email);
+                        UserDetails credentials = new UserDetails(password);
+                        mDatabaseRef.child(mUserId).child("Personal Details").setValue(personalDetails);
+                        mDatabaseRef.child(mUserId).child("Contact Details").setValue(contactDetails);
+                        mDatabaseRef.child(mUserId).child("Credentials").setValue(credentials);
+
+                        //Create Intent to go User Page Activity from SignUp Activity here
+                        Intent intent = new Intent(SignUpActivity.this,UserPageActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }else {
                     try {
                         throw task.getException();
@@ -201,32 +270,50 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private boolean validateSignUpDetails() {
-        if(AppConfig.validateEmail(mEmail.getText().toString().trim())){
-            mEmailLayout.setErrorEnabled(false);
-            mEmail.setError(null,successIcon);
-            if (AppConfig.validatePassword(mPassword.getText().toString().trim())){
-                mPasswordLayout.setErrorEnabled(false);
-                mPassword.setError(null,successIcon);
-                if (mPassword.getText().toString().trim().equals(mCPassword.getText().toString().trim())){
-                    mCPasswordLayout.setErrorEnabled(false);
-                    mCPassword.setError(null,successIcon);
-                    return true;
+        if (AppConfig.validateName(mName.getText().toString().trim())){
+            mNameLayout.setErrorEnabled(false);
+            mName.setError(null,successIcon);
+            if (AppConfig.validatePhone(mPhone.getText().toString().trim())){
+                mPhoneLayout.setErrorEnabled(false);
+                mPhone.setError(null,successIcon);
+                if(AppConfig.validateEmail(mEmail.getText().toString().trim())){
+                    mEmailLayout.setErrorEnabled(false);
+                    mEmail.setError(null,successIcon);
+                    if (AppConfig.validatePassword(mPassword.getText().toString().trim())){
+                        mPasswordLayout.setErrorEnabled(false);
+                        mPassword.setError(null,successIcon);
+                        if (mPassword.getText().toString().trim().equals(mCPassword.getText().toString().trim())){
+                            mCPasswordLayout.setErrorEnabled(false);
+                            mCPassword.setError(null,successIcon);
+                            return true;
+                        }else {
+                            mCPasswordLayout.setError("Passwords are not match");
+                            mCPassword.setError(null,errorIcon);
+                            mCPassword.requestFocus();
+                            return false;
+                        }
+                    }else {
+                        mPasswordLayout.setError("Password must be at least 6 characters");
+                        mPassword.setError(null,errorIcon);
+                        mPassword.requestFocus();
+                        return false;
+                    }
                 }else {
-                    mCPasswordLayout.setError("Passwords are not match");
-                    mCPassword.setError(null,errorIcon);
-                    mCPassword.requestFocus();
+                    mEmailLayout.setError("Enter valid email address");
+                    mEmail.setError(null,errorIcon);
+                    mEmail.requestFocus();
                     return false;
                 }
             }else {
-                mPasswordLayout.setError("Password must be at least 6 characters");
-                mPassword.setError(null,errorIcon);
-                mPassword.requestFocus();
+                mPhoneLayout.setError("Enter valid phone number");
+                mPhone.setError(null,errorIcon);
+                mPhone.requestFocus();
                 return false;
             }
         }else {
-            mEmailLayout.setError("Enter valid email address");
-            mEmail.setError(null,errorIcon);
-            mEmail.requestFocus();
+            mNameLayout.setError("Enter valid name");
+            mName.setError(null,errorIcon);
+            mName.requestFocus();
             return false;
         }
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+		xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,11 +23,47 @@
             android:layout_height="match_parent"
             android:id="@+id/su_relativeLayout">
 
+		        <android.support.design.widget.TextInputLayout
+				        android:id="@+id/su_name_input_layout"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_marginTop="15dp">
+
+				        <com.rejimalson.finddonors.helper.EditextErrorIcon
+						        android:id="@+id/su_input_name"
+						        android:layout_width="match_parent"
+						        android:layout_height="wrap_content"
+						        android:maxLines="1"
+						        android:hint="@string/sign_up_name_hint"
+						        android:inputType="textPersonName|textCapWords"
+						        android:textColor="@color/black"/>
+
+		        </android.support.design.widget.TextInputLayout>
+
+		        <android.support.design.widget.TextInputLayout
+				        android:id="@+id/su_phone_input_layout"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_marginTop="10dp"
+				        android:layout_below="@+id/su_name_input_layout">
+
+				        <com.rejimalson.finddonors.helper.EditextErrorIcon
+						        android:id="@+id/su_input_phone"
+						        android:layout_width="match_parent"
+						        android:layout_height="wrap_content"
+						        android:maxLines="1"
+						        android:hint="@string/sign_up_phone_hint"
+						        android:inputType="phone"
+						        android:textColor="@color/black"/>
+
+		        </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/su_email_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/su_phone_input_layout">
 
                 <com.rejimalson.finddonors.helper.EditextErrorIcon
                     android:id="@+id/su_input_email"

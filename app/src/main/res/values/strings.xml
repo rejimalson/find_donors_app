@@ -40,5 +40,7 @@
 		<string name="what_is_your_blood_group_label">What is Your Blood Group?</string>
 		<string name="you_are_label">You are?</string>
 		<string name="enter_your_full_name_hint">Enter Your Full Name</string>
+		<string name="sign_up_name_hint">Full Name</string>
+		<string name="sign_up_phone_hint">Phone Number</string>
 
 </resources>
