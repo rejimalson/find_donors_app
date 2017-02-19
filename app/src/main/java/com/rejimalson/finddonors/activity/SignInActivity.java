@@ -34,7 +34,8 @@ import com.rejimalson.finddonors.helper.EditextErrorIcon;
 import org.w3c.dom.Text;
 
 public class SignInActivity extends AppCompatActivity {
-    //Declare the instance here
+
+    //Declare the Instance here
     private TextInputLayout mEmailLayout,mPasswordLayout;
     private EditextErrorIcon mEmail, mPassword;
     private TextView mForgotPwd, mSignUp;
@@ -44,7 +45,7 @@ public class SignInActivity extends AppCompatActivity {
     private Drawable errorIcon;
     private ProgressDialog signInProgress;
 
-    //Firebase Instance
+    //Declare Firebase Instance here
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser mUser;
@@ -53,16 +54,14 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Initialize Firebase instance
+        //Initialize Firebase Instance here
         mAuth = FirebaseAuth.getInstance();
-        //Initialize Firebase Auth Listener
+        //Initialize Firebase Auth Listener here
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 mUser = firebaseAuth.getCurrentUser();
                 if (mUser != null){
-                    String email = mUser.getEmail();
-                    Toast.makeText(SignInActivity.this, ""+email, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignInActivity.this,UserPageActivity.class);
                     startActivity(intent);
                     finish();

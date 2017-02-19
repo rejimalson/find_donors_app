@@ -107,6 +107,10 @@ public class UserPageActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.profile_menu_edit:
                 // TODO: Write code for Edit Profile Menu
+                mAuth.signOut();
+                Intent intent = new Intent(UserPageActivity.this,SignInActivity.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.profile_menu_notification:
                 // TODO: Write code for Notifications Menu
