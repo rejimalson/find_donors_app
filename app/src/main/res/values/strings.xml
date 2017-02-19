@@ -26,8 +26,19 @@
 		<string name="followings_count">50</string>
 		<string name="followers_count">50</string>
 		<string name="edit_profile_icon_title">Edit Profile</string>
+		<string name="next_btn_text">Next</string>
+		<string name="slash_symbol">/</string>
+		<string name="onBoard_page_start_count">1</string>
+		<string name="onBoard_page_total_count">3</string>
+		<string name="back_btn_text">Back</string>
 
 		<!-- TODO: Remove or change this placeholder text -->
 		<string name="hello_blank_fragment">Hello blank fragment</string>
+		<string name="what_is_your_name_label">What is your name?</string>
+		<string name="what_is_your_birthday_label">What is Your Birthday?</string>
+		<string name="select_birthday_hint">Select Birthday</string>
+		<string name="what_is_your_blood_group_label">What is Your Blood Group?</string>
+		<string name="you_are_label">You are?</string>
+		<string name="enter_your_full_name_hint">Enter Your Full Name</string>
 
 </resources>

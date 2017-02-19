@@ -29,6 +29,7 @@ import com.rejimalson.finddonors.config.AppConfig;
 import com.rejimalson.finddonors.helper.EditextErrorIcon;
 
 public class SignUpActivity extends AppCompatActivity {
+
     //Declare instance here
     private TextInputLayout mEmailLayout,mPasswordLayout,mCPasswordLayout;
     private EditextErrorIcon mEmail, mPassword, mCPassword;
@@ -38,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Drawable successIcon, errorIcon;
     private ProgressDialog signUpProgress;
 
-    //Firebase Instance
+    //Declare Firebase Instance here
     private FirebaseAuth mAuth;
 
     @Override
@@ -46,18 +47,19 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        //Set Title of the activity
+        //Set Title of the activity here
         this.setTitle(R.string.signUpActivityTitle);
 
-        //Enable back button on action bar
+        //Enable back button on action bar here
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        //Get the error and success icons
+
+        //Get the error and success icons here
         getValidationErrorIcon();
         getValidationSuccessIcon();
 
-        //Initialize the Progress Dialog
+        //Initialize the Progress Dialog here
         signUpProgress = new ProgressDialog(this);
         signUpProgress.setMessage("Signing Up Please wait...");
         signUpProgress.setCancelable(false);
@@ -166,7 +168,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 signUpProgress.dismiss();
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(SignUpActivity.this,OnBoardActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this,UserPageActivity.class);
                     startActivity(intent);
                     finish();
                 }else {
