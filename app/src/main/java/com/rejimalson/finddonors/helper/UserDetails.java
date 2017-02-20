@@ -5,10 +5,10 @@ package com.rejimalson.finddonors.helper;
  */
 
 public class UserDetails {
-    String Full_Name, Blood_Group, Birthday, Gender;
-    String Phone_Number, Email_Id;
-    String Country, State, District;
-    String Password;
+    private String Full_Name, Blood_Group, Birthday, Gender;
+    private String Phone_Number, Email_Id;
+    private String Country, State, District;
+    private String Password;
 
     public UserDetails(String name, String bloodgroup, String birthday, String gender) {
         this.Full_Name = name;
@@ -29,6 +29,7 @@ public class UserDetails {
     }
 
     public UserDetails(String password) {
+        //TODO: Encrypt the password before storing it to Database
         this.Password = password;
     }
 }

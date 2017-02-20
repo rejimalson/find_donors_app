@@ -1,0 +1,68 @@
+<FrameLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingRight="16dp"
+		android:paddingEnd="16dp"
+		android:paddingLeft="16dp"
+		android:paddingStart="16dp"
+		android:paddingBottom="16dp"
+		android:paddingTop="16dp"
+		tools:context="com.rejimalson.finddonors.fragment.GetStartedFragment">
+
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/mainRelativeLayout"
+				android:layout_gravity="center">
+
+
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/hello_txt"
+						android:text="Hello,"
+						android:textAppearance="@style/TextAppearance.AppCompat.Large"
+						android:textStyle="bold|italic"
+						android:gravity="center"
+						android:layout_centerHorizontal="true"
+						android:textColor="@color/black"
+						android:layout_marginTop="25dp"/>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/name"
+						android:text="Antony Rejimal"
+						android:textAppearance="@style/TextAppearance.AppCompat.Large"
+						android:textStyle="bold|italic"
+						android:gravity="center"
+						android:layout_centerHorizontal="true"
+						android:layout_below="@id/hello_txt"
+						android:textColor="@color/colorAccent"
+						android:layout_marginTop="25dp"/>
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/hint"
+						android:layout_below="@id/name"
+						android:text="We highly recommend you to take few minutes to update your profile"
+						android:gravity="center"
+						android:layout_marginTop="25dp"
+						android:layout_centerHorizontal="true"/>
+
+				<Button
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:id="@+id/getStartedBtn"
+						android:layout_below="@+id/hint"
+						android:layout_marginTop="30dp"
+						android:background="@color/actionBarColor"
+						android:text="Get Started"
+						android:textColor="@color/white"
+						android:elevation="2dp"/>
+
+		</RelativeLayout>
+
+
+</FrameLayout>

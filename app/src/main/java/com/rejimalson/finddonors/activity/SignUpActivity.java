@@ -223,7 +223,6 @@ public class SignUpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 signUpProgress.dismiss();
                 if (task.isSuccessful()) {
-                    //TODO: Write code to store user details to firebase realtime database
                     mUser = mAuth.getCurrentUser();
                     if (mUser != null) {
                         mUserId = mUser.getUid();
@@ -234,11 +233,6 @@ public class SignUpActivity extends AppCompatActivity {
                         mDatabaseRef.child(mUserId).child("Personal Details").setValue(personalDetails);
                         mDatabaseRef.child(mUserId).child("Contact Details").setValue(contactDetails);
                         mDatabaseRef.child(mUserId).child("Credentials").setValue(credentials);
-
-                        //Create Intent to go User Page Activity from SignUp Activity here
-                        Intent intent = new Intent(SignUpActivity.this,UserPageActivity.class);
-                        startActivity(intent);
-                        finish();
                     }
                 }else {
                     try {
