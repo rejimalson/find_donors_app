@@ -244,6 +244,7 @@ public class SignUpActivity extends AppCompatActivity {
                         Toast.makeText(SignUpActivity.this, "Unexpected error occurred", Toast.LENGTH_SHORT).show();
                     }
                 }else {
+                    signUpProgress.dismiss();
                     try {
                         throw task.getException();
                     } catch (FirebaseAuthUserCollisionException e) {
