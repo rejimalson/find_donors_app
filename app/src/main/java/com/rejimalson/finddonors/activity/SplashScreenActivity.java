@@ -14,7 +14,7 @@ public class SplashScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        //Create Splash Screen Thread to display splash Screen for particular time
+        //Create Splash Screen Thread here to display splash screen for particular time
         Thread splashScrDelayThread = new Thread(){
             @Override
             public void run() {
