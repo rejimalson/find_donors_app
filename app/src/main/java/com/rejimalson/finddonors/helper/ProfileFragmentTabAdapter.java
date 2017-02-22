@@ -7,11 +7,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.rejimalson.finddonors.fragment.AboutUserFragment;
 import com.rejimalson.finddonors.fragment.MyActivitiesFragment;
 
-public class ProfielFragmentTabAdapter extends FragmentStatePagerAdapter {
+public class ProfileFragmentTabAdapter extends FragmentStatePagerAdapter {
     //Declare Instance
     private int mTabCount;
 
-    public ProfielFragmentTabAdapter(FragmentManager fm, int numOfTabs) {
+    public ProfileFragmentTabAdapter(FragmentManager fm, int numOfTabs) {
         super(fm);
         this.mTabCount = numOfTabs;
     }

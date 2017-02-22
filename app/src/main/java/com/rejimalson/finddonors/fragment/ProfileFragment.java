@@ -7,17 +7,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.rejimalson.finddonors.R;
-import com.rejimalson.finddonors.helper.ProfielFragmentTabAdapter;
+import com.rejimalson.finddonors.helper.ProfileFragmentTabAdapter;
 
 public class ProfileFragment extends Fragment {
 
-    View profileView;
-    TabLayout mTablayout;
+    TabLayout mTabLayout;
     ViewPager mViewPager;
+
+    View profileView;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -30,17 +35,17 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         profileView = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        mTablayout = (TabLayout)profileView.findViewById(R.id.profileTabLayout);
-        mTablayout.addTab(mTablayout.newTab().setText("About Me"));
-        mTablayout.addTab(mTablayout.newTab().setText("My Activities"));
-        mTablayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        mTabLayout = (TabLayout)profileView.findViewById(R.id.profileTabLayout);
+        mTabLayout.addTab(mTabLayout.newTab().setText("About Me"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("My Activities"));
+        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         mViewPager = (ViewPager)profileView.findViewById(R.id.profileTabPageContainer);
-        ProfielFragmentTabAdapter profielFragmentTabAdapter =
-                new ProfielFragmentTabAdapter(getFragmentManager(),mTablayout.getTabCount());
-        mViewPager.setAdapter(profielFragmentTabAdapter);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTablayout));
-        mTablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        ProfileFragmentTabAdapter profileFragmentTabAdapter =
+                new ProfileFragmentTabAdapter(getFragmentManager(), mTabLayout.getTabCount());
+        mViewPager.setAdapter(profileFragmentTabAdapter);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
@@ -55,5 +60,4 @@ public class ProfileFragment extends Fragment {
 
         return profileView;
     }
-
 }
