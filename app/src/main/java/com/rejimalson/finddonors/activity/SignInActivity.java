@@ -4,12 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -23,21 +23,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.config.AppConfig;
-import com.rejimalson.finddonors.helper.EditextErrorIcon;
-
-import org.w3c.dom.Text;
+import com.rejimalson.finddonors.helper.EditTextErrorIcon;
 
 public class SignInActivity extends AppCompatActivity {
 
     //Declare the Instance here
     private TextInputLayout mEmailLayout,mPasswordLayout;
-    private EditextErrorIcon mEmail, mPassword;
+    private EditTextErrorIcon mEmail, mPassword;
     private TextView mForgotPwd, mSignUp;
     private Button mSignIn;
     private RelativeLayout mRelativeLayout;
@@ -80,8 +77,8 @@ public class SignInActivity extends AppCompatActivity {
         //Find View Id here
         mEmailLayout = (TextInputLayout)findViewById(R.id.si_email_input_layout);
         mPasswordLayout = (TextInputLayout)findViewById(R.id.si_pwd_input_layout);
-        mEmail = (EditextErrorIcon)findViewById(R.id.si_input_email);
-        mPassword = (EditextErrorIcon)findViewById(R.id.si_input_pwd);
+        mEmail = (EditTextErrorIcon)findViewById(R.id.si_input_email);
+        mPassword = (EditTextErrorIcon)findViewById(R.id.si_input_pwd);
         mForgotPwd = (TextView)findViewById(R.id.sign_in_frgt_pwd_id);
         mSignUp = (TextView)findViewById(R.id.tv_signup_id);
         mSignIn = (Button)findViewById(R.id.sign_in_btn_id);
@@ -128,7 +125,7 @@ public class SignInActivity extends AppCompatActivity {
         mForgotPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Write code for Forgot Password process on Forgot Password TextView click
+                // TODO: Delete Toast and Write logic for Forgot Password process on Forgot Password TextView click
                 Toast.makeText(SignInActivity.this, "Forgot Password", Toast.LENGTH_SHORT).show();
             }
         });

@@ -5,8 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-public class EditextErrorIcon extends EditText {
-    public EditextErrorIcon(Context context, AttributeSet attrs) {
+public class EditTextErrorIcon extends EditText {
+    public EditTextErrorIcon(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

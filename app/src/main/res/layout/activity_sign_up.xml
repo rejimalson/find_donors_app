@@ -29,7 +29,7 @@
 				        android:layout_height="wrap_content"
 				        android:layout_marginTop="15dp">
 
-				        <com.rejimalson.finddonors.helper.EditextErrorIcon
+				        <com.rejimalson.finddonors.helper.EditTextErrorIcon
 						        android:id="@+id/su_input_name"
 						        android:layout_width="match_parent"
 						        android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
 				        android:layout_marginTop="10dp"
 				        android:layout_below="@+id/su_name_input_layout">
 
-				        <com.rejimalson.finddonors.helper.EditextErrorIcon
+				        <com.rejimalson.finddonors.helper.EditTextErrorIcon
 						        android:id="@+id/su_input_phone"
 						        android:layout_width="match_parent"
 						        android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/su_phone_input_layout">
 
-                <com.rejimalson.finddonors.helper.EditextErrorIcon
+                <com.rejimalson.finddonors.helper.EditTextErrorIcon
                     android:id="@+id/su_input_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                 android:layout_below="@+id/su_email_input_layout"
                 android:layout_marginTop="10dp">
 
-                <com.rejimalson.finddonors.helper.EditextErrorIcon
+                <com.rejimalson.finddonors.helper.EditTextErrorIcon
                     android:id="@+id/su_input_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 android:layout_below="@+id/su_pwd_input_layout"
                 android:layout_marginTop="10dp">
 
-                <com.rejimalson.finddonors.helper.EditextErrorIcon
+                <com.rejimalson.finddonors.helper.EditTextErrorIcon
                     android:id="@+id/su_input_cpwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

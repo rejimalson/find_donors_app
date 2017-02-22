@@ -29,6 +29,7 @@ public class UserDetails {
     }
 
     public UserDetails(String password) {
+        //TODO: Encrypt password before assigning to object
         this.Password = password;
     }
 }

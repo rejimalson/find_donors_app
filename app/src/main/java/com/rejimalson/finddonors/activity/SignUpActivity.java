@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,14 +30,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.config.AppConfig;
-import com.rejimalson.finddonors.helper.EditextErrorIcon;
+import com.rejimalson.finddonors.helper.EditTextErrorIcon;
 import com.rejimalson.finddonors.helper.UserDetails;
 
 public class SignUpActivity extends AppCompatActivity {
 
     //Declare instance here
     private TextInputLayout mNameLayout, mPhoneLayout, mEmailLayout,mPasswordLayout,mCPasswordLayout;
-    private EditextErrorIcon mName, mPhone, mEmail, mPassword, mCPassword;
+    private EditTextErrorIcon mName, mPhone, mEmail, mPassword, mCPassword;
     private Button mSignUp;
     private RelativeLayout mRelativeLayout;
 
@@ -83,11 +84,11 @@ public class SignUpActivity extends AppCompatActivity {
         mPasswordLayout = (TextInputLayout)findViewById(R.id.su_pwd_input_layout);
         mCPasswordLayout = (TextInputLayout)findViewById(R.id.su_cpwd_input_layout);
 
-        mName = (EditextErrorIcon)findViewById(R.id.su_input_name);
-        mPhone = (EditextErrorIcon)findViewById(R.id.su_input_phone);
-        mEmail = (EditextErrorIcon) findViewById(R.id.su_input_email);
-        mPassword = (EditextErrorIcon) findViewById(R.id.su_input_pwd);
-        mCPassword = (EditextErrorIcon) findViewById(R.id.su_input_cpwd);
+        mName = (EditTextErrorIcon)findViewById(R.id.su_input_name);
+        mPhone = (EditTextErrorIcon)findViewById(R.id.su_input_phone);
+        mEmail = (EditTextErrorIcon) findViewById(R.id.su_input_email);
+        mPassword = (EditTextErrorIcon) findViewById(R.id.su_input_pwd);
+        mCPassword = (EditTextErrorIcon) findViewById(R.id.su_input_cpwd);
 
         mSignUp = (Button)findViewById(R.id.sign_up_btn_id);
 
@@ -221,12 +222,11 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                signUpProgress.dismiss();
                 if (task.isSuccessful()) {
-                    //TODO: Write code to store user details to firebase realtime database
                     mUser = mAuth.getCurrentUser();
                     if (mUser != null) {
                         mUserId = mUser.getUid();
+
                         mDatabaseRef = mDatabase.getReference();
                         UserDetails personalDetails = new UserDetails(name,null,null,null);
                         UserDetails contactDetails = new UserDetails(phone,email);
@@ -235,10 +235,13 @@ public class SignUpActivity extends AppCompatActivity {
                         mDatabaseRef.child(mUserId).child("Contact Details").setValue(contactDetails);
                         mDatabaseRef.child(mUserId).child("Credentials").setValue(credentials);
 
+                        signUpProgress.dismiss();
                         //Create Intent to go User Page Activity from SignUp Activity here
                         Intent intent = new Intent(SignUpActivity.this,UserPageActivity.class);
                         startActivity(intent);
                         finish();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, "Unexpected error occurred", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     try {
@@ -340,7 +343,8 @@ public class SignUpActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_signup_terms:
-                //TODO: Write code to implement signup terms menu
+                //TODO: Delete Toast and Write code to implement signup terms menu
+                Toast.makeText(this, "Terms & Conditions", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
