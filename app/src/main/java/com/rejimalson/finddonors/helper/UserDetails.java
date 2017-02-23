@@ -5,31 +5,31 @@ package com.rejimalson.finddonors.helper;
  */
 
 public class UserDetails {
-    String Full_Name, Blood_Group, Birthday, Gender;
-    String Phone_Number, Email_Id;
-    String Country, State, District;
-    String Password;
+    String fullName, bloodGroup, birthDay, gender;
+    String phone, email;
+    String country, state, district;
+    String password;
 
-    public UserDetails(String name, String bloodgroup, String birthday, String gender) {
-        this.Full_Name = name;
-        this.Blood_Group = bloodgroup;
-        this.Birthday = birthday;
-        this.Gender = gender;
+    public UserDetails(String fullName, String bloodGroup, String birthDay, String gender) {
+        this.fullName = fullName;
+        this.bloodGroup = bloodGroup;
+        this.birthDay = birthDay;
+        this.gender = gender;
     }
 
     public  UserDetails(String phone, String email) {
-        this.Phone_Number = phone;
-        this.Email_Id = email;
+        this.phone = phone;
+        this.email = email;
     }
 
     public UserDetails(String country, String state, String district) {
-        this.Country = country;
-        this.State = state;
-        this.District = district;
+        this.country = country;
+        this.state = state;
+        this.district = district;
     }
 
     public UserDetails(String password) {
         //TODO: Encrypt password before assigning to object
-        this.Password = password;
+        this.password = password;
     }
 }

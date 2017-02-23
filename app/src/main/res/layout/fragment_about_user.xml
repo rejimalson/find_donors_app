@@ -46,7 +46,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginLeft="5dp"
-                            android:text="Personal Details"
+                            android:text="@string/personal_details_label"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <ImageView
@@ -54,7 +54,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/ic_cardview_settings"/>
+                            android:src="@drawable/ic_cardview_settings"
+                            android:contentDescription="@string/more_setting_icon_desc"/>
                     </RelativeLayout>
 
                     <View
@@ -85,14 +86,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/name_icon"
-                                android:src="@drawable/ic_name"/>
+                                android:src="@drawable/ic_name"
+                                android:contentDescription="@string/name_icon_desc"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/name_text"
-                                android:text="Antony Rejimal"
                                 android:layout_toRightOf="@+id/name_icon"
+                                android:layout_toEndOf="@+id/name_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -102,9 +104,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/name_label"
-                                android:text="Full Name"
+                                android:text="@string/full_name_label"
                                 android:layout_below="@+id/name_text"
                                 android:layout_toRightOf="@id/name_icon"
+                                android:layout_toEndOf="@+id/name_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"
@@ -129,8 +132,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/blood_grp_text"
-                                android:text="B -"
                                 android:layout_toRightOf="@+id/blood_icon"
+                                android:layout_toEndOf="@+id/blood_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -140,9 +143,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/blood_grp_label"
-                                android:text="Blood Group"
+                                android:text="@string/blood_group_label"
                                 android:layout_below="@+id/blood_grp_text"
                                 android:layout_toRightOf="@id/blood_icon"
+                                android:layout_toEndOf="@+id/blood_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"
@@ -167,8 +171,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/bday_text"
-                                android:text="October 27, 1993"
                                 android:layout_toRightOf="@+id/bday_icon"
+                                android:layout_toEndOf="@+id/bday_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -178,9 +182,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/bday_label"
-                                android:text="Birth Day"
+                                android:text="@string/birth_day_label"
                                 android:layout_below="@+id/bday_text"
                                 android:layout_toRightOf="@id/bday_icon"
+                                android:layout_toEndOf="@+id/bday_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"
@@ -199,14 +204,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/gender_icon"
-                                android:src="@drawable/ic_gender_icon"/>
+                                android:src="@drawable/ic_gender_icon"
+                                android:contentDescription="@string/gender_icon_desc"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/gender_text"
-                                android:text="Male"
                                 android:layout_toRightOf="@+id/gender_icon"
+                                android:layout_toEndOf="@+id/gender_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -216,9 +222,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/gender_label"
-                                android:text="Gender"
+                                android:text="@string/gender_label"
                                 android:layout_below="@+id/gender_text"
                                 android:layout_toRightOf="@id/gender_icon"
+                                android:layout_toEndOf="@+id/gender_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"
@@ -263,7 +270,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginLeft="5dp"
-                            android:text="Contact Details"
+                            android:text="@string/contact_details_label"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
                         <ImageView
@@ -271,7 +278,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/ic_cardview_settings"/>
+                            android:src="@drawable/ic_cardview_settings"
+                            android:contentDescription="@string/more_setting_icon_desc"/>
                     </RelativeLayout>
 
                     <View
@@ -302,14 +310,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/phone_icon"
-                                android:src="@drawable/ic_phone_number"/>
+                                android:src="@drawable/ic_phone_number"
+                                android:contentDescription="@string/phone_icon_desc"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/ph_text"
-                                android:text="+91 - 9940307983"
                                 android:layout_toRightOf="@+id/phone_icon"
+                                android:layout_toEndOf="@+id/phone_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -319,9 +328,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/phone_label"
-                                android:text="Full Name"
+                                android:text="@string/phone_label"
                                 android:layout_below="@+id/ph_text"
                                 android:layout_toRightOf="@id/phone_icon"
+                                android:layout_toEndOf="@+id/phone_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"
@@ -347,8 +357,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/mail_text"
-                                android:text="rejimalantony@gmail.com"
                                 android:layout_toRightOf="@+id/mail_icon"
+                                android:layout_toEndOf="@+id/mail_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -358,9 +368,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/mail_label"
-                                android:text="Email Address"
+                                android:text="@string/email_address_label"
                                 android:layout_below="@+id/mail_text"
                                 android:layout_toRightOf="@id/mail_icon"
+                                android:layout_toEndOf="@+id/mail_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"
@@ -386,8 +397,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/address_text"
-                                android:text="Colachel, Kanyakumari, Tamilnadu, India"
+                                android:text="@string/address_content"
                                 android:layout_toRightOf="@+id/address_icon"
+                                android:layout_toEndOf="@+id/address_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:textSize="14sp"
@@ -397,9 +409,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/address_label"
-                                android:text="Address"
+                                android:text="@string/address_label"
                                 android:layout_below="@+id/address_text"
                                 android:layout_toRightOf="@id/address_icon"
+                                android:layout_toEndOf="@+id/address_icon"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="10dp"
                                 android:paddingTop="2dp"

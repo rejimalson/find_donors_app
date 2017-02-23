@@ -30,6 +30,9 @@ import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.config.AppConfig;
 import com.rejimalson.finddonors.helper.EditTextErrorIcon;
 
+import static com.roughike.bottombar.R.styleable.TextInputLayout;
+
+
 public class SignInActivity extends AppCompatActivity {
 
     //Declare the Instance here

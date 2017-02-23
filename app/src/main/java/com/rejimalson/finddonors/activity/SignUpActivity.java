@@ -6,8 +6,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -18,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,12 +26,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rejimalson.finddonors.R;
 import com.rejimalson.finddonors.config.AppConfig;
 import com.rejimalson.finddonors.helper.EditTextErrorIcon;
 import com.rejimalson.finddonors.helper.UserDetails;
+import com.rejimalson.finddonors.helper.UserInfo;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -44,6 +48,8 @@ public class SignUpActivity extends AppCompatActivity {
     private Drawable successIcon, errorIcon;
     private ProgressDialog signUpProgress;
     private String mUserId;
+
+    private String DEFAULT_DATA = "Not Specified";
 
     //Declare Firebase Instance here
     private FirebaseAuth mAuth;
@@ -226,13 +232,15 @@ public class SignUpActivity extends AppCompatActivity {
                     mUser = mAuth.getCurrentUser();
                     if (mUser != null) {
                         mUserId = mUser.getUid();
-
-                        mDatabaseRef = mDatabase.getReference();
-                        UserDetails personalDetails = new UserDetails(name,null,null,null);
+                        // Write User Details
+                        mDatabaseRef = mDatabase.getReference("Users");
+                        UserDetails personalDetails = new UserDetails(name,DEFAULT_DATA,DEFAULT_DATA,DEFAULT_DATA);
                         UserDetails contactDetails = new UserDetails(phone,email);
+                        UserDetails address = new UserDetails(DEFAULT_DATA, DEFAULT_DATA,DEFAULT_DATA);
                         UserDetails credentials = new UserDetails(password);
                         mDatabaseRef.child(mUserId).child("Personal Details").setValue(personalDetails);
                         mDatabaseRef.child(mUserId).child("Contact Details").setValue(contactDetails);
+                        mDatabaseRef.child(mUserId).child("Contact Details").child("Address").setValue(address);
                         mDatabaseRef.child(mUserId).child("Credentials").setValue(credentials);
 
                         signUpProgress.dismiss();
@@ -336,7 +344,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_signup_terms,menu);
+        getMenuInflater().inflate(R.menu.signup_page_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
