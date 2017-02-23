@@ -2,10 +2,16 @@ package com.rejimalson.finddonors.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.PopupMenu;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,6 +33,11 @@ public class AboutUserFragment extends Fragment {
     TextView tv_FullName, tv_BloodGroup,tv_Birthday, tv_Gender;
     TextView tv_Phone_Number, tv_Email_Address;
 
+    ImageView iv_PopUpMenu_Personal, iv_PopUpMenu_Contact;
+    ImageView iv_PersonalAccessIcon, iv_ContactAccessIcon;
+
+    CardView cv_PersonalDetails;
+
     //Declare Firebase instance here
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -37,6 +48,7 @@ public class AboutUserFragment extends Fragment {
 
     String mFullName, mBloodGroup, mBirthday, mGender;
     String mPhoneNumber, mEmailAddress;
+    Boolean mPersonalDetailsPrivate, mContactDetailsPrivate;
 
     public AboutUserFragment() {
         // Required empty public constructor
@@ -90,6 +102,30 @@ public class AboutUserFragment extends Fragment {
 
                 }
             });
+            mDatabaseRef = mDatabase.getReference().child("Users").child(mUserId).child("Account Settings");
+            mDatabaseRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
+                    mPersonalDetailsPrivate = userInfo.getPersonalDetailsPrivate();
+                    mContactDetailsPrivate = userInfo.getContactDetailsPrivate();
+                    if (mPersonalDetailsPrivate){
+                        iv_PersonalAccessIcon.setBackgroundResource(R.drawable.ic_private);
+                    }else {
+                        iv_PersonalAccessIcon.setBackgroundResource(R.drawable.ic_public);
+                    }
+                    if (mContactDetailsPrivate){
+                        iv_ContactAccessIcon.setBackgroundResource(R.drawable.ic_private);
+                    }else {
+                        iv_ContactAccessIcon.setBackgroundResource(R.drawable.ic_public);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
 
         tv_FullName = (TextView)aboutView.findViewById(R.id.name_text);
@@ -100,6 +136,66 @@ public class AboutUserFragment extends Fragment {
         tv_Phone_Number = (TextView)aboutView.findViewById(R.id.ph_text);
         tv_Email_Address = (TextView)aboutView.findViewById(R.id.mail_text);
 
+        cv_PersonalDetails = (CardView)aboutView.findViewById(R.id.personal_details_cardView);
+
+        iv_PopUpMenu_Personal = (ImageView)aboutView.findViewById(R.id.personal_details_edit_icon);
+        iv_PopUpMenu_Contact = (ImageView)aboutView.findViewById(R.id.contact_details_edit_icon);
+
+        iv_PersonalAccessIcon = (ImageView)aboutView.findViewById(R.id.personal_details_access_icon);
+        iv_ContactAccessIcon = (ImageView)aboutView.findViewById(R.id.contact_details_access_icon);
+
+        iv_PopUpMenu_Personal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(getContext(),iv_PopUpMenu_Personal,Gravity.END);
+                popupMenu.getMenuInflater().inflate(R.menu.about_me_popup_menu,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        mDatabaseRef = mDatabase.getReference().child("Users");
+                        switch (item.getItemId()){
+                            case R.id.edit_details:
+                                Toast.makeText(getActivity(), "Personal", Toast.LENGTH_SHORT).show();
+                                return true;
+                            case R.id.make_private:
+                                mDatabaseRef.child(mUserId).child("Account Settings").child("personalDetailsPrivate").setValue(true);
+                                return true;
+                            case R.id.make_public:
+                                mDatabaseRef.child(mUserId).child("Account Settings").child("personalDetailsPrivate").setValue(false);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+        iv_PopUpMenu_Contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(getContext(),iv_PopUpMenu_Contact,Gravity.END);
+                popupMenu.getMenuInflater().inflate(R.menu.about_me_popup_menu,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        mDatabaseRef = mDatabase.getReference().child("Users");
+                        switch (item.getItemId()){
+                            case R.id.edit_details:
+                                Toast.makeText(getActivity(), "Contact", Toast.LENGTH_SHORT).show();
+                                return true;
+                            case R.id.make_private:
+                                mDatabaseRef.child(mUserId).child("Account Settings").child("contactDetailsPrivate").setValue(true);
+                                return true;
+                            case R.id.make_public:
+                                mDatabaseRef.child(mUserId).child("Account Settings").child("contactDetailsPrivate").setValue(false);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
         return aboutView;
     }
 

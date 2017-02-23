@@ -244,6 +244,8 @@ public class SignUpActivity extends AppCompatActivity {
                         mDatabaseRef.child(mUserId).child("Credentials").setValue(credentials);
                         mDatabaseRef.child(mUserId).child("Followers").child("followersCount").setValue("0");
                         mDatabaseRef.child(mUserId).child("Followings").child("followingsCount").setValue("0");
+                        mDatabaseRef.child(mUserId).child("Account Settings").child("contactDetailsPrivate").setValue(false);
+                        mDatabaseRef.child(mUserId).child("Account Settings").child("personalDetailsPrivate").setValue(false);
 
                         signUpProgress.dismiss();
                         //Create Intent to go User Page Activity from SignUp Activity here

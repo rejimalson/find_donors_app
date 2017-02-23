@@ -11,6 +11,7 @@ public class UserInfo {
     String country, state, district;
     String password;
     String followersCount, followingsCount;
+    Boolean contactDetailsPrivate, personalDetailsPrivate;
 
     public UserInfo() {
       /*Blank default constructor essential for Firebase*/
@@ -62,5 +63,13 @@ public class UserInfo {
 
     public String getFollowingsCount() {
         return followingsCount;
+    }
+
+    public Boolean getContactDetailsPrivate() {
+        return contactDetailsPrivate;
+    }
+
+    public Boolean getPersonalDetailsPrivate() {
+        return personalDetailsPrivate;
     }
 }

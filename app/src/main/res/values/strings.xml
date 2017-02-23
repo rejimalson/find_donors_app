@@ -61,5 +61,9 @@
 		<string name="blood_group_txt">Not Specified</string>
 		<string name="full_name_txt">Not Specified</string>
 		<string name="phone_label">Phone Number</string>
+		<string name="make_private">Make Private</string>
+		<string name="edit">Edit Details</string>
+		<string name="make_public">Make Public</string>
+		<string name="private_or_public">Private Or Public</string>
 
 </resources>
