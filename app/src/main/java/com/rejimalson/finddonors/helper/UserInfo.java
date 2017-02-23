@@ -10,6 +10,7 @@ public class UserInfo {
     String phone, email;
     String country, state, district;
     String password;
+    String followersCount, followingsCount;
 
     public UserInfo() {
       /*Blank default constructor essential for Firebase*/
@@ -53,5 +54,13 @@ public class UserInfo {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getFollowersCount() {
+        return followersCount;
+    }
+
+    public String getFollowingsCount() {
+        return followingsCount;
     }
 }

@@ -36,11 +36,12 @@ public class ProfileFragment extends Fragment {
     TabLayout mTabLayout;
     ViewPager mViewPager;
 
-    TextView tv_FullName, tv_Phone;
+    TextView tv_FullName, tv_Phone, tv_FollowersCount, tv_FollowingsCount;
     CoordinatorLayout mMainLayout;
 
     String mFullName;
     String mPhoneNumber;
+    String mFollowersCount, mFollowingsCount;
 
     //Declare Firebase instance here
     FirebaseAuth mAuth;
@@ -80,6 +81,30 @@ public class ProfileFragment extends Fragment {
 
                 }
             });
+            mDatabaseRef = mDatabase.getReference().child("Users").child(mUserId).child("Followers");
+            mDatabaseRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
+                    mFollowersCount = userInfo.getFollowersCount();
+                    tv_FollowersCount.setText(mFollowersCount);
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
+            mDatabaseRef = mDatabase.getReference().child("Users").child(mUserId).child("Followings");
+            mDatabaseRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
+                    mFollowingsCount = userInfo.getFollowingsCount();
+                    tv_FollowingsCount.setText(mFollowingsCount);
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
             mDatabaseRef = mDatabase.getReference().child("Users").child(mUserId).child("Contact Details");
             mDatabaseRef.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -100,8 +125,8 @@ public class ProfileFragment extends Fragment {
         mMainLayout = (CoordinatorLayout)profileView.findViewById(R.id.profile_fragment_main_layout);
         tv_FullName = (TextView)profileView.findViewById(R.id.userName);
         tv_Phone = (TextView)profileView.findViewById(R.id.userPhone);
-        //Toast.makeText(getActivity(), "after view - "+mFullName, Toast.LENGTH_SHORT).show();
-        //tv_FullName.setText(mFullName);
+        tv_FollowersCount = (TextView)profileView.findViewById(R.id.followersCount);
+        tv_FollowingsCount = (TextView)profileView.findViewById(R.id.followingsCount);
 
         mTabLayout = (TabLayout)profileView.findViewById(R.id.profileTabLayout);
         mTabLayout.addTab(mTabLayout.newTab().setText("About Me"));
