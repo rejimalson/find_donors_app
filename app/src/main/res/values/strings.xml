@@ -19,12 +19,12 @@
 		<string name="menu_signup_terms">T&amp;C</string>
 		<string name="emailValidationError">Enter valid email address</string>
 		<string name="notifications_icon_title">Notifications</string>
-		<string name="userName">Antony Rejimal</string>
-		<string name="userPhone">+91 – 9940307983</string>
+		<string name="userName">Not Specified</string>
+		<string name="userPhone">Not Specified</string>
 		<string name="followings_label">Followings</string>
 		<string name="followers_label">Followers</string>
-		<string name="followings_count">50</string>
-		<string name="followers_count">50</string>
+		<string name="followings_count">0</string>
+		<string name="followers_count">0</string>
 		<string name="edit_profile_icon_title">Edit Profile</string>
 		<string name="next_btn_text">Next</string>
 		<string name="slash_symbol">/</string>
@@ -32,7 +32,6 @@
 		<string name="onBoard_page_total_count">3</string>
 		<string name="back_btn_text">Back</string>
 
-		<!-- TODO: Remove or change this placeholder text -->
 		<string name="hello_blank_fragment">Hello blank fragment</string>
 		<string name="what_is_your_name_label">What is your name?</string>
 		<string name="what_is_your_birthday_label">What is Your Birthday?</string>
@@ -42,5 +41,25 @@
 		<string name="enter_your_full_name_hint">Enter Your Full Name</string>
 		<string name="sign_up_name_hint">Full Name</string>
 		<string name="sign_up_phone_hint">Phone Number</string>
+		<string name="personal_details_label">Personal Details</string>
+		<string name="name_icon_desc">Name Icon</string>
+		<string name="contact_details_label">Contact Details</string>
+		<string name="full_name_label">Full Name</string>
+		<string name="address_label">Address</string>
+		<string name="address_content">Not Specified</string>
+		<string name="more_setting_icon_desc">more_setting_icon</string>
+		<string name="gender_label">Gender</string>
+		<string name="email_address_label">Email Address</string>
+		<string name="male_txt">Not Specified</string>
+		<string name="gender_icon_desc">Gender Icon</string>
+		<string name="birth_day_label">Birth Day</string>
+		<string name="bday_txt">Not Specified</string>
+		<string name="phone_icon_desc">Phone Icon</string>
+		<string name="phone_txt">Not Specified</string>
+		<string name="email_txt">Not Specified</string>
+		<string name="blood_group_label">Blood Group</string>
+		<string name="blood_group_txt">Not Specified</string>
+		<string name="full_name_txt">Not Specified</string>
+		<string name="phone_label">Phone Number</string>
 
 </resources>

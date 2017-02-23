@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/profile_fragment_main_layout"
+    android:visibility="invisible"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.rejimalson.finddonors.fragment.ProfileFragment">
 
@@ -99,7 +101,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/userImgFrameLayout"
-                    android:text="@string/userName"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -110,7 +111,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/userName"
-                    android:text="@string/userPhone"
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:layout_centerHorizontal="true"
