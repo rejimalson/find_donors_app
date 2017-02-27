@@ -1,5 +1,6 @@
 package com.rejimalson.finddonors.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rejimalson.finddonors.R;
+import com.rejimalson.finddonors.activity.EditPersonalDetailsActivity;
 import com.rejimalson.finddonors.helper.UserInfo;
 
 /**
@@ -155,7 +157,13 @@ public class AboutUserFragment extends Fragment {
                         mDatabaseRef = mDatabase.getReference().child("Users");
                         switch (item.getItemId()){
                             case R.id.edit_details:
-                                Toast.makeText(getActivity(), "Personal", Toast.LENGTH_SHORT).show();
+                                //TODO: Implement edit personal details here
+                                Intent intent = new Intent(getActivity(), EditPersonalDetailsActivity.class);
+                                intent.putExtra("fullName", tv_FullName.getText().toString());
+                                intent.putExtra("bloodGroup", tv_BloodGroup.getText().toString());
+                                intent.putExtra("gender", tv_Gender.getText().toString());
+                                intent.putExtra("birthDay", tv_Birthday.getText().toString());
+                                startActivity(intent);
                                 return true;
                             case R.id.make_private:
                                 mDatabaseRef.child(mUserId).child("Account Settings").child("personalDetailsPrivate").setValue(true);
@@ -181,7 +189,7 @@ public class AboutUserFragment extends Fragment {
                         mDatabaseRef = mDatabase.getReference().child("Users");
                         switch (item.getItemId()){
                             case R.id.edit_details:
-                                Toast.makeText(getActivity(), "Contact", Toast.LENGTH_SHORT).show();
+                                //TODO: Implement edit contact details here
                                 return true;
                             case R.id.make_private:
                                 mDatabaseRef.child(mUserId).child("Account Settings").child("contactDetailsPrivate").setValue(true);

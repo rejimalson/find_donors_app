@@ -1,10 +1,12 @@
 package com.rejimalson.finddonors.helper;
 
+import com.rejimalson.finddonors.activity.UserPageActivity;
+
 /**
  * Created by REJIMALson on 2/23/2017.
  */
 
-public class UserInfo {
+public class UserInfo{
 
     String fullName, bloodGroup, birthDay, gender;
     String phone, email;

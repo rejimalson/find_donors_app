@@ -6,10 +6,10 @@ public class AppConfig {
     public static final int SPLASH_SCREEN_WAIT_TIME = 1000;
 
     //Gender List
-    public static final String GENDER_LIST[] = {"Select gender", "Male", "Female", "Transgender"};
+    public static final String GENDER_LIST[] = {"Select", "Male", "Female", "Transgender"};
     //Blood Groups List
-    public static String BLOOD_GROUP_LIST[] = {"Select Blood Group", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "A1+",
-            "A1-", "A2+", "A2-", "A1B+", "A1B-", "A2B+", "A2B-", "Bombay Blood Group"};
+    public static String BLOOD_GROUP_LIST[] = {"Select", "A +", "A -", "B +", "B -", "O +", "O -", "AB +", "AB -",
+            "A1 +", "A1 -", "A2 +", "A2 -", "A1B +", "A1B -", "A2B +", "A2B -", "Bombay Blood Group"};
 
     //Name validation function
     public static boolean validateName(String fn) {

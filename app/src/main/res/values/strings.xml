@@ -65,5 +65,10 @@
 		<string name="edit">Edit Details</string>
 		<string name="make_public">Make Public</string>
 		<string name="private_or_public">Private Or Public</string>
+		<string name="select_birthday">Select</string>
+		<string name="epd_show_exit_title">Do you want to exit?</string>
+		<string name="epd_show_exit_message">Your changes will not be saved</string>
+		<string name="yes">YES</string>
+		<string name="no">NO</string>
 
 </resources>
