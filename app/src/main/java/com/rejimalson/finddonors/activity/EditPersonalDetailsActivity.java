@@ -56,6 +56,7 @@ public class EditPersonalDetailsActivity extends AppCompatActivity implements Da
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
 
+        //Get the intent data here
         mFullName = getIntent().getStringExtra("fullName");
         mBloodGroup = getIntent().getStringExtra("bloodGroup");
         mGender = getIntent().getStringExtra("gender");

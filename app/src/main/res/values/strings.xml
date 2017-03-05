@@ -70,5 +70,8 @@
 		<string name="epd_show_exit_message">Your changes will not be saved</string>
 		<string name="yes">YES</string>
 		<string name="no">NO</string>
+		<string name="phone_number_label">Phone Number</string>
+		<string name="state_label">State</string>
+		<string name="district_label">District</string>
 
 </resources>

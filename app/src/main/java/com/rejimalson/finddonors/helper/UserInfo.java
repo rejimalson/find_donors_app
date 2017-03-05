@@ -1,7 +1,5 @@
 package com.rejimalson.finddonors.helper;
 
-import com.rejimalson.finddonors.activity.UserPageActivity;
-
 /**
  * Created by REJIMALson on 2/23/2017.
  */
@@ -10,10 +8,10 @@ public class UserInfo{
 
     String fullName, bloodGroup, birthDay, gender;
     String phone, email;
-    String country, state, district;
     String password;
     String followersCount, followingsCount;
     Boolean contactDetailsPrivate, personalDetailsPrivate;
+    String country, state, district;
 
     public UserInfo() {
       /*Blank default constructor essential for Firebase*/
@@ -43,18 +41,6 @@ public class UserInfo{
         return email;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -74,4 +60,17 @@ public class UserInfo{
     public Boolean getPersonalDetailsPrivate() {
         return personalDetailsPrivate;
     }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
 }

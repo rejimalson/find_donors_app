@@ -1,6 +1,7 @@
 package com.rejimalson.finddonors.fragment;
 
 import android.content.Intent;
+import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rejimalson.finddonors.R;
+import com.rejimalson.finddonors.activity.EditContactDetailsActivity;
 import com.rejimalson.finddonors.activity.EditPersonalDetailsActivity;
 import com.rejimalson.finddonors.helper.UserInfo;
 
@@ -33,7 +35,7 @@ public class AboutUserFragment extends Fragment {
     View aboutView;
 
     TextView tv_FullName, tv_BloodGroup,tv_Birthday, tv_Gender;
-    TextView tv_Phone_Number, tv_Email_Address;
+    TextView tv_Phone_Number, tv_Email_Address, tv_Address;
 
     ImageView iv_PopUpMenu_Personal, iv_PopUpMenu_Contact;
     ImageView iv_PersonalAccessIcon, iv_ContactAccessIcon;
@@ -49,7 +51,7 @@ public class AboutUserFragment extends Fragment {
     String mUserId;
 
     String mFullName, mBloodGroup, mBirthday, mGender;
-    String mPhoneNumber, mEmailAddress;
+    String mPhoneNumber, mEmailAddress, mCountry, mState, mDistrict;
     Boolean mPersonalDetailsPrivate, mContactDetailsPrivate;
 
     public AboutUserFragment() {
@@ -95,13 +97,23 @@ public class AboutUserFragment extends Fragment {
                     UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
                     mPhoneNumber = "+91 - "+userInfo.getPhone();
                     mEmailAddress = userInfo.getEmail();
+                    mCountry = userInfo.getCountry();
+                    mState = userInfo.getState();
+                    mDistrict = userInfo.getDistrict();
                     tv_Phone_Number.setText(mPhoneNumber);
                     tv_Email_Address.setText(mEmailAddress);
+                    if (mState.equals("Not Specified")){
+                        tv_Address.setText(mCountry);
+                    }
+                    else if (mDistrict.equals("Not Specified")){
+                        tv_Address.setText(mState+", "+mCountry);
+                    }
+                    else {
+                        tv_Address.setText(mDistrict+", "+mState+", "+mCountry);
+                    }
                 }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
                 }
             });
             mDatabaseRef = mDatabase.getReference().child("Users").child(mUserId).child("Account Settings");
@@ -137,6 +149,7 @@ public class AboutUserFragment extends Fragment {
 
         tv_Phone_Number = (TextView)aboutView.findViewById(R.id.ph_text);
         tv_Email_Address = (TextView)aboutView.findViewById(R.id.mail_text);
+        tv_Address = (TextView)aboutView.findViewById(R.id.address_text);
 
         cv_PersonalDetails = (CardView)aboutView.findViewById(R.id.personal_details_cardView);
 
@@ -157,7 +170,6 @@ public class AboutUserFragment extends Fragment {
                         mDatabaseRef = mDatabase.getReference().child("Users");
                         switch (item.getItemId()){
                             case R.id.edit_details:
-                                //TODO: Implement edit personal details here
                                 Intent intent = new Intent(getActivity(), EditPersonalDetailsActivity.class);
                                 intent.putExtra("fullName", tv_FullName.getText().toString());
                                 intent.putExtra("bloodGroup", tv_BloodGroup.getText().toString());
@@ -189,7 +201,11 @@ public class AboutUserFragment extends Fragment {
                         mDatabaseRef = mDatabase.getReference().child("Users");
                         switch (item.getItemId()){
                             case R.id.edit_details:
-                                //TODO: Implement edit contact details here
+                                Intent intent = new Intent(getActivity(), EditContactDetailsActivity.class);
+                                intent.putExtra("phoneNumber", tv_Phone_Number.getText().toString());
+                                intent.putExtra("state", mState);
+                                intent.putExtra("district", mDistrict);
+                                startActivity(intent);
                                 return true;
                             case R.id.make_private:
                                 mDatabaseRef.child(mUserId).child("Account Settings").child("contactDetailsPrivate").setValue(true);

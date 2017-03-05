@@ -24,6 +24,8 @@
 				<activity android:name=".activity.UserPageActivity"/>
 				<activity android:name=".activity.EditPersonalDetailsActivity">
 				</activity>
+				<activity android:name=".activity.EditContactDetailsActivity">
+				</activity>
 		</application>
 
 </manifest>

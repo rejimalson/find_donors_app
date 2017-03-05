@@ -49,6 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ProgressDialog signUpProgress;
     private String mUserId;
 
+    private String INDIA = "India";
     private String DEFAULT_DATA = "Not Specified";
 
     //Declare Firebase Instance here
@@ -235,12 +236,10 @@ public class SignUpActivity extends AppCompatActivity {
                         // Write User Details
                         mDatabaseRef = mDatabase.getReference("Users");
                         UserDetails personalDetails = new UserDetails(name,DEFAULT_DATA,DEFAULT_DATA,DEFAULT_DATA);
-                        UserDetails contactDetails = new UserDetails(phone,email);
-                        UserDetails address = new UserDetails(DEFAULT_DATA, DEFAULT_DATA,DEFAULT_DATA);
+                        UserDetails contactDetails = new UserDetails(phone,email,INDIA, DEFAULT_DATA,DEFAULT_DATA);
                         UserDetails credentials = new UserDetails(password);
                         mDatabaseRef.child(mUserId).child("Personal Details").setValue(personalDetails);
                         mDatabaseRef.child(mUserId).child("Contact Details").setValue(contactDetails);
-                        mDatabaseRef.child(mUserId).child("Contact Details").child("Address").setValue(address);
                         mDatabaseRef.child(mUserId).child("Credentials").setValue(credentials);
                         mDatabaseRef.child(mUserId).child("Followers").child("followersCount").setValue("0");
                         mDatabaseRef.child(mUserId).child("Followings").child("followingsCount").setValue("0");

@@ -380,7 +380,6 @@
 		                            android:layout_width="wrap_content"
 		                            android:layout_height="wrap_content"
 		                            android:id="@+id/address_text"
-		                            android:text="@string/address_content"
 		                            android:layout_toRightOf="@+id/address_icon"
 		                            android:layout_toEndOf="@+id/address_icon"
 		                            android:layout_marginLeft="10dp"

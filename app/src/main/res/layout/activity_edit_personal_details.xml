@@ -61,7 +61,7 @@
 								android:layout_below="@+id/divider1"
 								android:text="@string/blood_group_label"
 								android:textSize="12sp"
-								android:layout_marginTop="15dp"
+								android:layout_marginTop="10dp"
 								android:layout_marginLeft="20dp"
 								android:layout_marginStart="20dp"/>
 
@@ -94,7 +94,7 @@
 								android:layout_below="@+id/blood_grp_spinner"
 								android:text="@string/gender_label"
 								android:textSize="12sp"
-								android:layout_marginTop="20dp"
+								android:layout_marginTop="10dp"
 								android:layout_marginLeft="20dp"
 								android:layout_marginStart="20dp"/>
 
@@ -126,7 +126,7 @@
 								android:layout_below="@+id/gender_spinner"
 								android:text="@string/birth_day_label"
 								android:textSize="12sp"
-								android:layout_marginTop="20dp"
+								android:layout_marginTop="15dp"
 								android:layout_marginLeft="20dp"
 								android:layout_marginStart="20dp"/>
 						<RelativeLayout
@@ -146,7 +146,7 @@
 										android:layout_marginStart="22dp"
 										android:layout_marginRight="20dp"
 										android:layout_marginEnd="20dp"
-										android:layout_marginTop="18dp"/>
+										android:layout_marginTop="15dp"/>
 
 						</RelativeLayout>
 

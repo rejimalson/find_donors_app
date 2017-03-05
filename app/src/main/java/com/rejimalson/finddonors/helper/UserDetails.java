@@ -17,12 +17,9 @@ public class UserDetails {
         this.gender = gender;
     }
 
-    public  UserDetails(String phone, String email) {
+    public  UserDetails(String phone, String email, String country, String state, String district) {
         this.phone = phone;
         this.email = email;
-    }
-
-    public UserDetails(String country, String state, String district) {
         this.country = country;
         this.state = state;
         this.district = district;
